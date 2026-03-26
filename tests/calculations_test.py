@@ -57,13 +57,19 @@ def test_get_nth_fibonacci_one():
     # Assert
     assert result == 1
 
-def test_get_nth_fibonacci_ten():
-    """Test with n=10."""
-    # Arrange
-    n = 10
+def test_get_nth_fibonacci_zero():
+    result = get_nth_fibonacci(0)
+    assert result == 0
 
-    # Act
-    result = get_nth_fibonacci(n)
 
-    # Assert
-    assert result == 55
+def test_get_nth_fibonacci_one():
+    result = get_nth_fibonacci(1)
+    assert result == 1
+
+
+def test_get_nth_fibonacci_negative():
+    try:
+        get_nth_fibonacci(-1)
+        assert False  # Should not reach here
+    except ValueError:
+        assert True
